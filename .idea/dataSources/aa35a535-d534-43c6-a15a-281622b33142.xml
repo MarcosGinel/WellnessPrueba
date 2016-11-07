@@ -388,17 +388,17 @@ model</columns>
       <mandatory>1</mandatory>
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
-    <column id="93" parent="13" name="fecha_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
-    </column>
-    <column id="94" parent="13" name="usuario_id">
-      <mandatory>1</mandatory>
-      <data-type>INTEGER(0,-1)|4</data-type>
-    </column>
-    <column id="95" parent="13" name="cantidad">
+    <column id="93" parent="13" name="cantidad">
       <mandatory>1</mandatory>
       <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="94" parent="13" name="fecha_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="95" parent="13" name="usuario_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
     </column>
     <key id="96" parent="13">
       <columns>id</columns>
@@ -434,14 +434,20 @@ model</columns>
       <mandatory>1</mandatory>
       <data-type>DECIMAL(0,-1)|6</data-type>
     </column>
-    <key id="102" parent="14">
+    <index id="102" parent="14" name="sqlite_autoindex_facturacion_preciodiario_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>fecha</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="103" parent="14">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="103" parent="15" name="name">
+    <column id="104" parent="15" name="name">
       <data-type>(0,-1)|12</data-type>
     </column>
-    <column id="104" parent="15" name="seq">
+    <column id="105" parent="15" name="seq">
       <data-type>(0,-1)|12</data-type>
     </column>
   </database-model>
