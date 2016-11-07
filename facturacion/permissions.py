@@ -1,6 +1,6 @@
 from rest_framework.permissions import BasePermission
 
-class UserPermission(BasePermission):
+class PrecioUserPermissions(BasePermission):
 
     def has_permission(self, request, view):
         '''
@@ -28,5 +28,4 @@ class UserPermission(BasePermission):
         :param obj:
         :return:
         '''
-        # Si es superadmin, o el usuario autenticado intenta hacer GET, PUT o DELETE sobre su perfil
         return request.user.is_superuser or request.user == obj

@@ -1,21 +1,23 @@
 from rest_framework.filters import OrderingFilter
 from rest_framework.filters import SearchFilter
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, IsAdminUser
 from rest_framework.viewsets import ModelViewSet
 
 from facturacion.models import ConsumoDiario, PrecioDiario
+from facturacion.permissions import PrecioUserPermissions
 from facturacion.serializers import ConsumoDiarioSerializer, PrecioDiarioSerializer
 
 
 class PrecioDiarioSet(ModelViewSet):
 
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [PrecioUserPermissions]
     pagination_class = PageNumberPagination
     serializer_class = PrecioDiarioSerializer
     filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ['fecha']
     ordering_fields = ['fecha']
+
 
     def get_queryset(self):
         if self.request.query_params.get('fecha_inicio') and self.request.query_params.get('fecha_fin'):
@@ -37,7 +39,7 @@ class PrecioDiarioSet(ModelViewSet):
 
 class ConsumoDiarioSet(ModelViewSet):
     queryset = ConsumoDiario.objects.all()
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [PrecioUserPermissions]
     pagination_class = PageNumberPagination
     serializer_class = ConsumoDiarioSerializer
     filter_backends = [SearchFilter, OrderingFilter]
