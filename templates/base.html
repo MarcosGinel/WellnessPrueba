@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}WellNess - Facturación{% endblock %}</title>
+        <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static '/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {% block section %}
+
+        {% endblock %}
+    </body>
+</html>
