@@ -12,7 +12,7 @@ from facturacion.serializers import ConsumoDiarioSerializer, PrecioDiarioSeriali
 class PrecioDiarioSet(ModelViewSet):
 
     permission_classes = [PrecioUserPermissions]
-    pagination_class = PageNumberPagination
+    #pagination_class = PageNumberPagination
     serializer_class = PrecioDiarioSerializer
     filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ['fecha']
@@ -40,7 +40,7 @@ class PrecioDiarioSet(ModelViewSet):
 class ConsumoDiarioSet(ModelViewSet):
     queryset = ConsumoDiario.objects.all()
     permission_classes = [PrecioUserPermissions]
-    pagination_class = PageNumberPagination
+    #pagination_class = PageNumberPagination
     serializer_class = ConsumoDiarioSerializer
     filter_backends = [SearchFilter, OrderingFilter]
     #search_fields = ['fecha__fecha', 'usuario__first_name']

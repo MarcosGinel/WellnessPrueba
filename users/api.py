@@ -9,7 +9,7 @@ from rest_framework.response import Response
 
 class UserViewSet(GenericViewSet):
     permission_classes = [UserPermission]
-    pagination_class = PageNumberPagination
+    #pagination_class = PageNumberPagination
     serializer_class = UserSerializer
 
     def get_queryset(self):
@@ -26,7 +26,7 @@ class UserViewSet(GenericViewSet):
         self.check_permissions(request)
         self.paginate_queryset(self.get_queryset())
         serializer = self.get_serializer(self.get_queryset(), many=True)
-        return self.get_paginated_response(serializer.data)
+        return Response(serializer.data)
 
     def create(self, request):
         '''
