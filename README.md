@@ -5,7 +5,7 @@ Este proyecto Django es el proyecto que implementa la parte del servidor.
 
 Consiste en una API rest par almacenar datos sobre los precios diarios de la "luz", el consumo diario de cada usuario y alguna información.
 
-Se implementa una api rest y una autenticación mediante TokenREST sin usar el sistema de django de logging nativo (que también se puede usar).
+Se implementa una api rest y una autenticación mediante TokenREST sin usar el sistema de django de logging nativo (que también se puede usar). Además se ha tenido que saltar la restricción del Cross Origin (CORS) para que la app cliente pudiese ser fácilmente puesta en marcha en local.
 
 Requiere:
 
