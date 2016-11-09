@@ -10,7 +10,9 @@ from facturacion.serializers import ConsumoDiarioSerializer, PrecioDiarioSeriali
 
 
 class PrecioDiarioSet(ModelViewSet):
-
+    '''
+    Clase para la API de Precio diario, permite ordenar por fecha y buscar
+    '''
     permission_classes = [PrecioUserPermissions]
     #pagination_class = PageNumberPagination
     serializer_class = PrecioDiarioSerializer
@@ -20,6 +22,9 @@ class PrecioDiarioSet(ModelViewSet):
 
 
     def get_queryset(self):
+        '''
+        Query set especial en función de si queremos buscar entre rangos de fechas o no
+        '''
         if self.request.query_params.get('fecha_inicio') and self.request.query_params.get('fecha_fin'):
             fecha_inicio = self.request.query_params.get('fecha_inicio')
             fecha_fin = self.request.query_params.get('fecha_fin')
@@ -29,15 +34,18 @@ class PrecioDiarioSet(ModelViewSet):
 
     def perform_create(self, serializer):
         '''
-        Asigna automaticamente la autoría de la foto al usuario autenticado
+        Realiza la creación/edición de la entidad
         :param serializer:
-        :return:
+        :return: none
         '''
         # cada vez que vaya a crear un objeto con el serializer que se seleccione... el owner será self.request.user
         serializer.save()
 
 
 class ConsumoDiarioSet(ModelViewSet):
+    '''
+    Clase API que serializará y mostrará los datos de los consumos de un usuario
+    '''
     queryset = ConsumoDiario.objects.all()
     permission_classes = [PrecioUserPermissions]
     #pagination_class = PageNumberPagination
@@ -49,9 +57,9 @@ class ConsumoDiarioSet(ModelViewSet):
 
     def perform_create(self, serializer):
         '''
-        Asigna automaticamente la autoría de la foto al usuario autenticado
+        Realiza la creación/edición de la entidad
         :param serializer:
-        :return:
+        :return: None
         '''
         # cada vez que vaya a crear un objeto con el serializer que se seleccione... el owner será self.request.user
         serializer.save()
