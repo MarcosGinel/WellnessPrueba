@@ -18,8 +18,8 @@ Viene configurado con datos en la BD y con un usuario que es
   Password: wellness
   
 Si se visita el sitio desde http://127.0.0.1:8000, se ofrecen las siguientes apis (que se pueden ver mediante ApiView):
-  /users/api/v1/users/
-  /facturas/api/v1/consumodiario
-  /facturas/api/v1/preciodiario
+  * /users/api/v1/users/
+  * /facturas/api/v1/consumodiario
+  * /facturas/api/v1/preciodiario
   
 Los usuarios pueden consultar, pero no escribir, actualizar o borrar. Sólo el usuario admin-wellness puede hacerlo.
